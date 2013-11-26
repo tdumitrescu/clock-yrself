@@ -6,7 +6,7 @@ exports.config =
     base: '/'
     run:  yes
 
-  # See docs at http://brunch.readthedocs.org/en/latest/config.html.
+  # See docs at https://github.com/brunch/brunch/blob/stable/docs/config.md.
   conventions:
     assets: /^client\/assets\//
   modules:
@@ -25,7 +25,7 @@ exports.config =
       joinTo:
         'css/app.css': /^(client|vendor|bower_components)/
       order:
-        before: [
+        after: [
           'client/styles/app.less'
         ]
 
