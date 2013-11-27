@@ -1,7 +1,7 @@
 'use strict'
 
 describe "controllers", ->
-  beforeEach(module "myApp.controllers")
+  beforeEach(module "clockApp.controllers")
 
   describe "AppCtrl", ->
     it "fetches name from the backend", inject ($rootScope, $controller, $httpBackend) ->

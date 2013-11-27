@@ -2,7 +2,7 @@
 
 ### Controllers ###
 
-angular.module('myApp.controllers', [])
+angular.module('clockApp.controllers', [])
 
 .controller('AboutCtrl', ["$scope", ($scope) ->
   $scope.occupation = ""

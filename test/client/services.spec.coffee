@@ -4,7 +4,7 @@
 
 describe "service", ->
 
-  beforeEach(module "myApp.services")
+  beforeEach(module "clockApp.services")
 
   describe "version", ->
     it "returns current version", inject((version) ->

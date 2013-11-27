@@ -3,7 +3,7 @@
 # jasmine specs for directives go here
 describe "directives", ->
 
-  beforeEach(module "myApp.directives")
+  beforeEach(module "clockApp.directives")
 
   describe "app-version", ->
 

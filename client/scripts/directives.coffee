@@ -3,9 +3,9 @@
 ### Directives ###
 
 # register the module with Angular
-angular.module('myApp.directives', [
-  # require the 'myApp.services' module
-  'myApp.services'
+angular.module('clockApp.directives', [
+  # require the 'clockApp.services' module
+  'clockApp.services'
 ])
 
 .directive('appVersion', [

@@ -2,6 +2,6 @@
 
 ### Sevices ###
 
-angular.module('myApp.services', [])
+angular.module('clockApp.services', [])
 
 .factory 'version', -> "0.1"

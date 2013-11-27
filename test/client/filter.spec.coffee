@@ -2,7 +2,7 @@
 
 # jasmine specs for filters go here
 describe "filter", ->
-  beforeEach(module "myApp.filters")
+  beforeEach(module "clockApp.filters")
 
   describe "interpolate", ->
 

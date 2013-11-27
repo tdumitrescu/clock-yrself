@@ -2,7 +2,7 @@
 
 ### Filters ###
 
-angular.module('myApp.filters', [])
+angular.module('clockApp.filters', [])
 
 .filter('interpolate', [
   'version',
