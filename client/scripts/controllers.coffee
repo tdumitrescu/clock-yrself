@@ -11,6 +11,18 @@ angular.module('clockApp.controllers', ['clockApp.services'])
   ])
 
 .controller('ClockCtrl', ["$scope", "pageTimer", ($scope, timer) ->
-  $scope.clockTime = -> "#{timer.seconds} seconds"
+  $scope.clockTime = ->
+    totals = timer.seconds
+    totalm = Math.floor(totals / 60)
+    h = Math.floor(totalm / 60)
+    m = totalm - h * 60
+    s = totals - totalm * 60
+
+    timeStr = $scope.pluralize(s, "second")
+    timeStr = "#{$scope.pluralize(m, 'minute')} and #{timeStr}" if m > 0 or h > 0
+    timeStr = "#{$scope.pluralize(h, 'hour')}, #{timeStr}" if h > 0
+    timeStr
+
+  $scope.pluralize = (i, s) -> "#{i} #{s}#{if i is 1 then '' else 's'}"
 
   ])
