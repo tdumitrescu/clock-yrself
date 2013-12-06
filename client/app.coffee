@@ -4,5 +4,5 @@
 angular.module('clockApp', [
   'ngCookies', 'ngResource', 'ngRoute',
   'clockApp.controllers', 'clockApp.directives', 'clockApp.filters', 'clockApp.services'
-  'partials', 'timer'
+  'partials'
 ])
