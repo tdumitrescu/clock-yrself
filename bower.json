@@ -19,7 +19,8 @@
     "angular-sanitize": "1.2.1",
     "angular-resource": "1.2.1",
     "angular-cookies": "1.2.1",
-    "angular-mocks": "1.2.1"
+    "angular-mocks": "1.2.1",
+    "angular-timer": "1.0.7"
   },
   "overrides": {
     "bootstrap-less": {
