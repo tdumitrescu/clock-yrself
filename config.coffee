@@ -8,7 +8,8 @@ exports.config =
 
   # See docs at https://github.com/brunch/brunch/blob/stable/docs/config.md.
   conventions:
-    assets: /^client\/assets\//
+    assets:  /^client\/assets\//
+    ignored: /^(bower_components\/bootstrap-less(-themes)?|client\/styles\/overrides)/
   modules:
     definition: false
     wrapper: false
@@ -25,7 +26,7 @@ exports.config =
       joinTo:
         'css/app.css': /^(client|vendor|bower_components)/
       order:
-        after: [
+        before: [
           'client/styles/app.less'
         ]
 
