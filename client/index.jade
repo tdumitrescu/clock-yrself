@@ -12,6 +12,11 @@ block body
   #pre-clock(ng-controller="ClockCtrl")
     | i have had this page open for {{clockTime()}}
 
+  | during this time...
+
+  #info-comparison(ng-controller="CmpInfoCtrl")
+    | a{{occupationStr()}} in {{location}} might earn {{earnedAmt()}}
+
   script(src='/js/vendor.js')
   script(src='/js/partials.js')
   script(src='/js/app.js')
