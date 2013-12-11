@@ -7,6 +7,8 @@ angular.module('clockApp.controllers', ['clockApp.services'])
 .controller('AboutCtrl', ["$scope", ($scope) ->
   $scope.occupation = ""
   $scope.location   = ""
+  $scope.salaryTypes = ["hour"]
+  $scope.salaryType  = $scope.salaryTypes[0]
 
   $scope.occupationArticle = -> Helpers.indefArticleFor $scope.occupation
 

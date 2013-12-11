@@ -13,7 +13,7 @@ h1.main {
   text-align: right;
 }
 
-input {
+input, select {
   margin-top: 10px;
 }
 
@@ -22,8 +22,20 @@ input {
   border-left: 0px;
   border-right: 0px;
 
-  .work-label {
+  .label-text {
     display:   inline-block;
-    min-width: 6em;
+
+    &.intro {
+      min-width: 6em;
+    }
+
+    &.second {
+      min-width: 1em;
+    }
+
+    &.connector {
+      min-width: 2em;
+      padding-left: 1em;
+    }
   }
 }
