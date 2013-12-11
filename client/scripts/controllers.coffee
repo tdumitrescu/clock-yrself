@@ -2,15 +2,13 @@
 
 ### Controllers ###
 
-angular.module('clockApp.controllers', ['clockApp.services'])
+angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters'])
 
 .controller('AboutCtrl', ["$scope", ($scope) ->
   $scope.occupation = ""
   $scope.location   = ""
   $scope.salaryTypes = ["hour"]
   $scope.salaryType  = $scope.salaryTypes[0]
-
-  $scope.occupationArticle = -> Helpers.indefArticleFor $scope.occupation
 
   ])
 
@@ -41,7 +39,5 @@ angular.module('clockApp.controllers', ['clockApp.services'])
   $scope.earnedAmt = (hourly) ->
     amt = hourly * timer.seconds / 3600
     if amt < 0.01 then "less than $0.01" else "$#{amt.toFixed(2)}"
-
-  $scope.occupationStr = (o) -> Helpers.indefArticlize o
 
   ])
