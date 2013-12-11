@@ -12,6 +12,4 @@ class PageTimer
 
 angular.module('clockApp.services', [])
 
-.factory('version', -> "0.1")
-
 .service('pageTimer', ["$interval", PageTimer])

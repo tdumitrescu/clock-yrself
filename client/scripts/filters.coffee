@@ -9,11 +9,3 @@ angular.module('clockApp.filters', [])
 .filter("indefArticlize", ["indefArticleFilter", (indefArticle) ->
   (s) -> "#{indefArticle(s)} #{s}"
 ])
-
-.filter('interpolate', [
-  'version',
-
-(version) ->
-  (text) ->
-    String(text).replace(/\%VERSION\%/mg, version)
-])
