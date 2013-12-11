@@ -1,21 +1,22 @@
 extends layout
 
 block body
-  h1 clock yrself
+  .container
+    h1.main clock yrself
 
-  #about-me(ng-controller="AboutCtrl")
-    span i work as a(n) 
-    input(type="text", placeholder="occupation", ng-model="occupation")
-    span  in
-    input(type="text", placeholder="location", ng-model="location")
+    #about-me(ng-controller="AboutCtrl")
+      span i work as a(n) 
+      input(type="text", placeholder="occupation", ng-model="occupation")
+      span  in
+      input(type="text", placeholder="location", ng-model="location")
 
-  #pre-clock(ng-controller="ClockCtrl")
-    | i have had this page open for {{clockTime()}}
+    #pre-clock(ng-controller="ClockCtrl")
+      | i have had this page open for {{clockTime()}}
 
-  | during this time...
+    | during this time...
 
-  #info-comparison(ng-controller="CmpInfoCtrl")
-    | a{{occupationStr()}} in {{location}} might earn {{earnedAmt()}}
+    #info-comparison(ng-controller="CmpInfoCtrl")
+      | a{{occupationStr()}} in {{location}} might earn {{earnedAmt()}}
 
   script(src='/js/vendor.js')
   script(src='/js/partials.js')
