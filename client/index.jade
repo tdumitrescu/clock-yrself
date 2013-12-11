@@ -5,7 +5,7 @@ block body
     h1.main clock yrself
 
     #about-me(ng-controller="AboutCtrl")
-      span i work as a(n) 
+      span i work as {{occupationArticle()}}
       input(type="text", placeholder="occupation", ng-model="occupation")
       span  in
       input(type="text", placeholder="location", ng-model="location")
@@ -16,7 +16,7 @@ block body
     | during this time...
 
     #info-comparison(ng-controller="CmpInfoCtrl")
-      | a{{occupationStr()}} in {{location}} might earn {{earnedAmt()}}
+      | {{occupationStr()}} in {{location}} might earn {{earnedAmt()}}
 
   script(src='/js/vendor.js')
   script(src='/js/partials.js')

@@ -8,6 +8,8 @@ angular.module('clockApp.controllers', ['clockApp.services'])
   $scope.occupation = ""
   $scope.location   = ""
 
+  $scope.occupationArticle = -> Helpers.indefArticleFor $scope.occupation
+
   ])
 
 .controller('ClockCtrl', ["$scope", "pageTimer", ($scope, timer) ->
@@ -39,8 +41,6 @@ angular.module('clockApp.controllers', ['clockApp.services'])
     else
       "$#{amt.toFixed(2)}"
 
-  $scope.occupationStr = ->
-    o = $scope.occupation
-    "#{if /^[aeiou].*/.test(o) then 'n' else ''} #{o}"
+  $scope.occupationStr = -> Helpers.indefArticlize $scope.occupation
 
   ])
