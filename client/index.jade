@@ -25,7 +25,7 @@ block body
 
     #info-comparison(ng-controller="CmpInfoCtrl")
       .cmp-panel(ng-repeat="ex in cmpExamples")
-        | a {{occupationStr(ex.occupation)}} in {{ex.location}} might earn {{earnedAmt(ex.hourly)}}
+        | {{occupationStr(ex.occupation)}} in {{ex.location}} might earn {{earnedAmt(ex.hourly)}}
 
   script(src='/js/vendor.js')
   script(src='/js/partials.js')
