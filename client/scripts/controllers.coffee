@@ -30,14 +30,16 @@ angular.module('clockApp.controllers', ['clockApp.services'])
   ])
 
 .controller('CmpInfoCtrl', ["$scope", "pageTimer", ($scope, timer) ->
-  $scope.location   = "Kansas"
-  $scope.occupation = "Walmart greeter"
-  $scope.salary     = 8.73
+  $scope.cmpExamples = [
+    {occupation: "Walmart greeter",   location: "Kansas",       hourly: 8.73    }
+    {occupation: "plumber",           location: "Madison",      hourly: 37.21   }
+    {occupation: "software firm CEO", location: "Redwood City", hourly: 48080.35}
+  ]
 
-  $scope.earnedAmt = ->
-    amt = $scope.salary * timer.seconds / 3600
+  $scope.earnedAmt = (hourly) ->
+    amt = hourly * timer.seconds / 3600
     if amt < 0.01 then "less than $0.01" else "$#{amt.toFixed(2)}"
 
-  $scope.occupationStr = -> Helpers.indefArticlize $scope.occupation
+  $scope.occupationStr = (o) -> Helpers.indefArticlize o
 
   ])
