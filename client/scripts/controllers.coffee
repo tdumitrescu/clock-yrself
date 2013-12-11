@@ -36,10 +36,7 @@ angular.module('clockApp.controllers', ['clockApp.services'])
 
   $scope.earnedAmt = ->
     amt = $scope.salary * timer.seconds / 3600
-    if amt < 0.01
-      "less than $0.01"
-    else
-      "$#{amt.toFixed(2)}"
+    if amt < 0.01 then "less than $0.01" else "$#{amt.toFixed(2)}"
 
   $scope.occupationStr = -> Helpers.indefArticlize $scope.occupation
 
