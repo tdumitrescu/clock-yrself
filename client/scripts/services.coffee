@@ -2,11 +2,17 @@
 
 class PageTimer
   constructor: ($interval) ->
-    @startTime = new Date
+    @$interval = $interval
     @seconds = 0
-    $interval @incr, 1000
 
   incr: => @seconds = Math.round(((new Date) - @startTime) / 1000)
+
+  start: ->
+    @startTime = new Date
+    @seconds = 0
+    @$interval @incr, 1000
+
+  started: -> @startTime?
 
 ### Services ###
 

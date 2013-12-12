@@ -19,10 +19,10 @@ block body
           span.label-text.connector  per 
           select(ng-options="s for s in salaryTypes", ng-model="salaryType", required)
         #about-submit
-          button#clock-button(ng-disabled="!saveable()") go on the clock
+          button#clock-button(ng-disabled="!saveable()", ng-click="submit()") go on the clock
 
     #pre-clock(ng-controller="ClockCtrl")
-      | i have had this page open for {{clockTime()}}
+      | the clock has been running for {{clockTime()}}
 
     | working continuously during this time...
 

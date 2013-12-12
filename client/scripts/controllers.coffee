@@ -4,14 +4,15 @@
 
 angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters'])
 
-.controller('AboutCtrl', ["$scope", ($scope) ->
+.controller('AboutCtrl', ["$scope", "pageTimer", ($scope, timer) ->
   $scope.occupation  = ""
   $scope.location    = ""
   $scope.salaryTypes = ["hour", "year"]
   $scope.salaryType  = $scope.salaryTypes[0]
 
-  $scope.saveable = -> @aboutMeForm.$dirty and @aboutMeForm.$valid
-  ])
+  $scope.saveable = -> !timer.started() and @aboutMeForm.$dirty and @aboutMeForm.$valid
+  $scope.submit   = -> timer.start()
+])
 
 .controller('ClockCtrl', ["$scope", "pageTimer", "pluralizeFilter", ($scope, timer, pluralize) ->
   $scope.clockTime = ->
@@ -25,8 +26,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
     timeStr = "#{pluralize(m, 'minute')} and #{timeStr}" if m > 0 or h > 0
     timeStr = "#{pluralize(h, 'hour')}, #{timeStr}" if h > 0
     timeStr
-
-  ])
+])
 
 .controller('CmpInfoCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
   $scope.defaultData = [
@@ -55,5 +55,4 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
     divisor = if ex.salaryType is "year" then 7200000 else 3600
     amt = ex.salary * timer.seconds / divisor
     if amt < 0.01 then "less than $0.01" else "$#{amt.toFixed(2)}"
-
-  ])
+])
