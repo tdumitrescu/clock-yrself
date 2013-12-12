@@ -28,12 +28,19 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
 
   ])
 
-.controller('CmpInfoCtrl', ["$scope", "pageTimer", ($scope, timer) ->
-  $scope.cmpExamples = [
+.controller('CmpInfoCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
+  $scope.defaultData = [
     {occupation: "Walmart greeter",   location: "Kansas",       hourly: 8.73    }
     {occupation: "plumber",           location: "Madison",      hourly: 37.21   }
     {occupation: "software firm CEO", location: "Redwood City", hourly: 48080.35}
   ]
+  $http.get("/api/exx")
+    .success(
+      (data) -> $scope.cmpExamples = data.examples
+    )
+    .error(
+      -> $scope.cmpExamples = $scope.defaultData
+    )
 
   $scope.earnedAmt = (hourly) ->
     amt = hourly * timer.seconds / 3600

@@ -1,2 +1,3 @@
-# Serve JSON to our AngularJS client
-exports.name = (req, res) -> res.json name: "Bob"
+{Salary} = require "./models"
+
+exports.exx = (req, res) -> res.json examples: Salary.samples
