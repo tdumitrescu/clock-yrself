@@ -12,7 +12,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
 
   ])
 
-.controller('ClockCtrl', ["$scope", "pageTimer", ($scope, timer) ->
+.controller('ClockCtrl', ["$scope", "pageTimer", "pluralizeFilter", ($scope, timer, pluralize) ->
   $scope.clockTime = ->
     totals = timer.seconds
     totalm = Math.floor(totals / 60)
@@ -20,12 +20,10 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
     m = totalm - h * 60
     s = totals - totalm * 60
 
-    timeStr = $scope.pluralize(s, "second")
-    timeStr = "#{$scope.pluralize(m, 'minute')} and #{timeStr}" if m > 0 or h > 0
-    timeStr = "#{$scope.pluralize(h, 'hour')}, #{timeStr}" if h > 0
+    timeStr = pluralize(s, "second")
+    timeStr = "#{pluralize(m, 'minute')} and #{timeStr}" if m > 0 or h > 0
+    timeStr = "#{pluralize(h, 'hour')}, #{timeStr}" if h > 0
     timeStr
-
-  $scope.pluralize = (i, s) -> "#{i} #{s}#{if i is 1 then '' else 's'}"
 
   ])
 

@@ -9,3 +9,5 @@ angular.module('clockApp.filters', [])
 .filter("indefArticlize", ["indefArticleFilter", (indefArticle) ->
   (s) -> "#{indefArticle(s)} #{s}"
 ])
+
+.filter("pluralize", -> (i, s) -> "#{i} #{s}#{if i is 1 then '' else 's'}")
