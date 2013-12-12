@@ -15,7 +15,7 @@ class Salary
       }
       {
         occupation: "software firm CEO",  location: "Redwood City"
-        salaryType: "hour",               salary: 48080.35
+        salaryType: "year",               salary: 96160696
       }
     ]
 

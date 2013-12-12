@@ -31,16 +31,16 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
 .controller('CmpInfoCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
   $scope.defaultData = [
     {
-      occupation: "Walmart greeter",    location: "Kansas",
-      salaryType: "hour",               salary: 8.73
+      occupation: "Walmart greeter",   location: "Kansas",
+      salaryType: "hour",              salary: 8.73
     }
     {
-      occupation: "plumber",            location: "Madison",
-      salaryType: "hour",               salary: 37.21
+      occupation: "plumber",           location: "Madison",
+      salaryType: "hour",              salary: 37.21
     }
     {
-      occupation: "software firm CEO",  location: "Redwood City"
-      salaryType: "hour",               salary: 48080.35
+      occupation: "software firm CEO", location: "Redwood City"
+      salaryType: "year",              salary: 96160696
     }
   ]
   $http.get("/api/exx")
@@ -52,7 +52,8 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
     )
 
   $scope.earnedAmt = (ex) ->
-    amt = ex.salary * timer.seconds / 3600
+    divisor = if ex.salaryType is "year" then 7200000 else 3600
+    amt = ex.salary * timer.seconds / divisor
     if amt < 0.01 then "less than $0.01" else "$#{amt.toFixed(2)}"
 
   ])
