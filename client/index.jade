@@ -10,15 +10,15 @@ block body
         #occupation
           span.label-text.intro i work as {{occupation | indefArticle}}
           span.label-text.second
-          input(type="text", placeholder="occupation", ng-model="occupation")
+          input(type="text", placeholder="occupation", ng-model="occupation", required)
           span.label-text.connector  in
-          input(type="text", placeholder="location", ng-model="location")
+          input(type="text", placeholder="location", ng-model="location", required)
         #compensation
           span.label-text.intro i earn 
           span.label-text.second $
-          input(type="number", step="0.01", min="0", placeholder="0.00", ng-model="salary")
+          input(type="number", step="0.01", min="0.01", placeholder="0.01", ng-model="salary", required)
           span.label-text.connector  per 
-          select(ng-options="s for s in salaryTypes", ng-model="salaryType")
+          select(ng-options="s for s in salaryTypes", ng-model="salaryType", required)
         #about-submit
           button#clock-button(ng-disabled="!saveable()") go on the clock
 
