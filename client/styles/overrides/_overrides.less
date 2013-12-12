@@ -1,3 +1,5 @@
+@marginSmall: 1em;
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   padding-bottom: .3em;
@@ -9,7 +11,7 @@ h1.main {
 }
 
 input, select {
-  margin-top: 10px;
+  margin-top: @marginSmall;
 }
 
 #about-me {
@@ -35,7 +37,7 @@ input, select {
   }
 
   #about-submit {
-    margin: 1em;
+    margin: @marginSmall;
 
     @buttonColor:         @textColor;
     @buttonDisabledColor: lighten(@bodyBackground, 20%);
@@ -43,8 +45,8 @@ input, select {
     #clock-button {
       display:       inline-block;
       border:        2px solid @buttonColor;
-      border-radius: 10px;
-      padding:       10px;
+      border-radius: @marginSmall;
+      padding:       @marginSmall;
 
       color:            @buttonColor;
       background-color: @bodyBackground;
@@ -57,4 +59,8 @@ input, select {
       }
     }
   }
+}
+
+#pre-clock {
+  margin-top: @marginSmall;
 }
