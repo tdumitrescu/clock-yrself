@@ -5,9 +5,9 @@
 angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters'])
 
 .controller('AboutCtrl', ["$scope", ($scope) ->
-  $scope.occupation = ""
-  $scope.location   = ""
-  $scope.salaryTypes = ["hour"]
+  $scope.occupation  = ""
+  $scope.location    = ""
+  $scope.salaryTypes = ["hour", "year"]
   $scope.salaryType  = $scope.salaryTypes[0]
 
   $scope.saveable = -> @aboutMeForm.$dirty and @aboutMeForm.$valid
