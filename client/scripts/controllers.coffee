@@ -10,6 +10,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
   $scope.salaryTypes = ["hour"]
   $scope.salaryType  = $scope.salaryTypes[0]
 
+  $scope.saveable = -> @aboutMeForm.$dirty and @aboutMeForm.$valid
   ])
 
 .controller('ClockCtrl', ["$scope", "pageTimer", "pluralizeFilter", ($scope, timer, pluralize) ->

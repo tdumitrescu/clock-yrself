@@ -6,20 +6,21 @@ block body
 
   .container
     #about-me(ng-controller="AboutCtrl")
-      #occupation
-        span.label-text.intro i work as {{occupation | indefArticle}}
-        span.label-text.second
-        input(type="text", placeholder="occupation", ng-model="occupation")
-        span.label-text.connector  in
-        input(type="text", placeholder="location", ng-model="location")
-      #compensation
-        span.label-text.intro i earn 
-        span.label-text.second $
-        input(type="number", step="0.01", min="0", placeholder="0.00", ng-model="salary")
-        span.label-text.connector  per 
-        select(ng-options="s for s in salaryTypes", ng-model="salaryType")
-      #about-submit
-        #clock-button go on the clock
+      form(name="aboutMeForm", novalidate)
+        #occupation
+          span.label-text.intro i work as {{occupation | indefArticle}}
+          span.label-text.second
+          input(type="text", placeholder="occupation", ng-model="occupation")
+          span.label-text.connector  in
+          input(type="text", placeholder="location", ng-model="location")
+        #compensation
+          span.label-text.intro i earn 
+          span.label-text.second $
+          input(type="number", step="0.01", min="0", placeholder="0.00", ng-model="salary")
+          span.label-text.connector  per 
+          select(ng-options="s for s in salaryTypes", ng-model="salaryType")
+        #about-submit
+          button#clock-button(ng-disabled="!saveable()") go on the clock
 
     #pre-clock(ng-controller="ClockCtrl")
       | i have had this page open for {{clockTime()}}
