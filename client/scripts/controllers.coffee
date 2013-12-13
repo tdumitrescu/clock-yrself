@@ -4,6 +4,10 @@
 
 angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters'])
 
+.controller('MainCtrl', ["$scope", "pageTimer", ($scope, timer) ->
+  $scope.timerStarted = -> timer.started()
+])
+
 .controller('AboutCtrl', ["$scope", "pageTimer", ($scope, timer) ->
   $scope.occupation  = ""
   $scope.location    = ""

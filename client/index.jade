@@ -3,8 +3,8 @@ extends layout
 block body
   .logo clock yourself
 
-  .container
-    #about-me(ng-controller="AboutCtrl")
+  .container(ng-controller="MainCtrl")
+    #about-me.slide(ng-controller="AboutCtrl", ng-if="!timerStarted()")
       form(name="aboutMeForm", novalidate)
         #occupation
           span.label-text.intro i work as {{occupation | indefArticle}}
