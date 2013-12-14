@@ -11,3 +11,9 @@ angular.module('clockApp.filters', [])
 ])
 
 .filter("pluralize", -> (i, s) -> "#{i} #{s}#{if i is 1 then '' else 's'}")
+
+.filter("zerofill", -> (i, totalLength) ->
+  i = i.toString()
+  (i = "0" + i) while i.length < totalLength
+  i
+)

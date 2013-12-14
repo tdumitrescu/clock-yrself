@@ -18,7 +18,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
   $scope.submit   = -> timer.start()
 ])
 
-.controller('ClockCtrl', ["$scope", "pageTimer", "pluralizeFilter", ($scope, timer, pluralize) ->
+.controller('ClockCtrl', ["$scope", "pageTimer", "zerofillFilter", ($scope, timer, zerofill) ->
   $scope.clockTime = ->
     totals = timer.seconds
     totalm = Math.floor(totals / 60)
@@ -26,12 +26,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
     m = totalm - h * 60
     s = totals - totalm * 60
 
-    "#{h}:#{m}:#{s}"
-
-    # timeStr = pluralize(s, "second")
-    # timeStr = "#{pluralize(m, 'minute')} and #{timeStr}" if m > 0 or h > 0
-    # timeStr = "#{pluralize(h, 'hour')}, #{timeStr}" if h > 0
-    # timeStr
+    "#{zerofill(h, 2)}:#{zerofill(m, 2)}:#{zerofill(s, 2)}"
 ])
 
 .controller('CmpInfoCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
