@@ -2,7 +2,7 @@
 
 ### Controllers ###
 
-angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters'])
+angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directives', 'clockApp.filters'])
 
 .controller('MainCtrl', ["$scope", "pageTimer", ($scope, timer) ->
   $scope.timerStarted = -> timer.started()
@@ -26,10 +26,12 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
     m = totalm - h * 60
     s = totals - totalm * 60
 
-    timeStr = pluralize(s, "second")
-    timeStr = "#{pluralize(m, 'minute')} and #{timeStr}" if m > 0 or h > 0
-    timeStr = "#{pluralize(h, 'hour')}, #{timeStr}" if h > 0
-    timeStr
+    "#{h}:#{m}:#{s}"
+
+    # timeStr = pluralize(s, "second")
+    # timeStr = "#{pluralize(m, 'minute')} and #{timeStr}" if m > 0 or h > 0
+    # timeStr = "#{pluralize(h, 'hour')}, #{timeStr}" if h > 0
+    # timeStr
 ])
 
 .controller('CmpInfoCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
