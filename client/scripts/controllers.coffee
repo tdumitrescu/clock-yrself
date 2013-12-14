@@ -54,6 +54,5 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
 
   $scope.earnedAmt = (ex) ->
     divisor = if ex.salaryType is "year" then 7200000 else 3600
-    amt = ex.salary * timer.seconds / divisor
-    if amt < 0.01 then "less than $0.01" else "$#{amt.toFixed(2)}"
+    "#{(ex.salary * timer.seconds / divisor).toFixed(2)}"
 ])
