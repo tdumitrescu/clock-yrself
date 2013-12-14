@@ -4,10 +4,6 @@ block body
   .logo clock yourself
 
   .container(ng-controller="MainCtrl")
-    #clock.slide(ng-controller="ClockCtrl", ng-if="timerStarted()")
-      | on the clock for: 
-      blocky-text(text="clockTime()", divider=":")
-
     #about-me.slide(ng-controller="AboutCtrl", ng-if="!timerStarted()")
       form(name="aboutMeForm", novalidate)
         #occupation
@@ -25,7 +21,7 @@ block body
         #about-submit
           button#clock-button(ng-disabled="!saveable()", ng-click="submit()") go on the clock
 
-    #pre-clock.slide(ng-controller="ClockCtrl", ng-if="!timerStarted()")
+    #clock(ng-controller="ClockCtrl")
       | on the clock for: 
       blocky-text(text="clockTime()", divider=":")
 

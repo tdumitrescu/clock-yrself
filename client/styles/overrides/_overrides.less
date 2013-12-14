@@ -10,25 +10,6 @@ input, select {
   margin-top: @marginSmall;
 }
 
-.logo {
-  display:  inline-block;
-  position: fixed;
-  right:    0px;
-
-  padding-top:    @marginSmall;
-  padding-bottom: @marginSmall;
-  padding-right:  5em;
-  text-align:     right;
-  font-size:      200%;
-}
-
-@media (max-width: @navbarCollapseWidth) {
-  .logo {
-    display:  block;
-    position: static;
-  }
-}
-
 .slide {
   overflow:     hidden;
   max-height:   0px;
@@ -57,6 +38,30 @@ input, select {
     color:            @textColor;
     background-color: @bodyBackground;
   }
+}
+
+.logo {
+  display:  inline-block;
+  position: fixed;
+  right:    0px;
+
+  padding-top:    @marginSmall;
+  padding-bottom: @marginSmall;
+  padding-right:  5em;
+  text-align:     right;
+  font-size:      200%;
+}
+
+@media (max-width: @navbarCollapseWidth) {
+  .logo {
+    display:  block;
+    position: static;
+  }
+}
+
+#clock {
+  margin-top:    @marginSmall;
+  margin-bottom: @marginSmall;
 }
 
 #about-me {
@@ -107,8 +112,4 @@ input, select {
       }
     }
   }
-}
-
-#pre-clock {
-  margin-top: @marginSmall;
 }
