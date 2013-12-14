@@ -47,8 +47,16 @@ input, select {
   border:        1px solid @textColor;
   border-radius: 3px;
 
-  color: @bodyBackground;
+  color:            @bodyBackground;
   background-color: @textColor;
+
+  &.divider {
+    width:  0.5em;
+    border: 0px;
+
+    color:            @textColor;
+    background-color: @bodyBackground;
+  }
 }
 
 #about-me {

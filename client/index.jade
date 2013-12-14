@@ -6,7 +6,7 @@ block body
   .container(ng-controller="MainCtrl")
     #clock.slide(ng-controller="ClockCtrl", ng-if="timerStarted()")
       | on the clock for: 
-      blocky-text(text="clockTime()")
+      blocky-text(text="clockTime()", divider=":")
 
     #about-me.slide(ng-controller="AboutCtrl", ng-if="!timerStarted()")
       form(name="aboutMeForm", novalidate)
@@ -27,7 +27,7 @@ block body
 
     #pre-clock.slide(ng-controller="ClockCtrl", ng-if="!timerStarted()")
       | on the clock for: 
-      blocky-text(text="clockTime()")
+      blocky-text(text="clockTime()", divider=":")
 
     | working continuously during this time...
 

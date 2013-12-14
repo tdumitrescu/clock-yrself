@@ -7,17 +7,22 @@ angular.module('clockApp.directives', [])
 
 .directive('blockyText', ->
   restrict: 'E'
-  scope:    text: '='
+  scope:
+    text:    '='
+    divider: '@'
   template:
     """
     <span class="td-blocky-text">
-      <span class="td-blocky-text-char" ng-repeat="c in chars(text) track by $index">
+      <span class="td-blocky-text-char"
+            ng-repeat="c in chars(text) track by $index"
+            ng-class="{divider: isDivider(c)}">
         {{c}}
       </span>
     </span>
     """
   replace:  true
   link: (scope) ->
-    scope.chars = (s) -> s.split('')
+    scope.chars     = (s) -> s.split('')
+    scope.isDivider = (c) -> c is scope.divider
 
 )
