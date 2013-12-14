@@ -35,11 +35,11 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.filters']
 .controller('CmpInfoCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
   $scope.defaultData = [
     {
-      occupation: "Walmart greeter",   location: "Kansas",
+      occupation: "Walmart greeter",   location: "Kansas"
       salaryType: "hour",              salary: 8.73
     }
     {
-      occupation: "plumber",           location: "Madison",
+      occupation: "plumber",           location: "Madison"
       salaryType: "hour",              salary: 37.21
     }
     {
