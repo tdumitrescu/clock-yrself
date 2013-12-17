@@ -6,14 +6,18 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
 
 .controller('MainCtrl', ["$scope", "pageTimer", ($scope, timer) ->
   $scope.timerStarted = -> timer.started()
+  $scope.salaryTypes = ["hour", "year"]
+  $scope.user =
+    occupation: ""
+    location:   ""
+    salaryType: $scope.salaryTypes[0]
+
+  $scope.earnedAmt = (u) ->
+    divisor = if u.salaryType is "year" then 7200000 else 3600
+    "#{(u.salary * timer.seconds / divisor).toFixed(2)}"
 ])
 
 .controller('AboutCtrl', ["$scope", "pageTimer", ($scope, timer) ->
-  $scope.occupation  = ""
-  $scope.location    = ""
-  $scope.salaryTypes = ["hour", "year"]
-  $scope.salaryType  = $scope.salaryTypes[0]
-
   $scope.saveable = -> !timer.started() and @aboutMeForm.$dirty and @aboutMeForm.$valid
   $scope.submit   = -> timer.start()
 ])
@@ -29,7 +33,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
     "#{zerofill(h, 2)}:#{zerofill(m, 2)}:#{zerofill(s, 2)}"
 ])
 
-.controller('CmpInfoCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
+.controller('CmpInfoCtrl', ["$scope", "$http", ($scope, $http) ->
   $scope.defaultData = [
     {
       occupation: "Walmart greeter",   location: "Kansas"
@@ -51,8 +55,4 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
     .error(
       -> $scope.cmpExamples = $scope.defaultData
     )
-
-  $scope.earnedAmt = (ex) ->
-    divisor = if ex.salaryType is "year" then 7200000 else 3600
-    "#{(ex.salary * timer.seconds / divisor).toFixed(2)}"
 ])

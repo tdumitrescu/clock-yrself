@@ -9,21 +9,27 @@ block body
         #occupation
           span.label-text.intro i work as {{occupation | indefArticle}}
           span.label-text.second
-          input(type="text", placeholder="occupation", ng-model="occupation", required)
+          input(type="text", placeholder="occupation", ng-model="user.occupation", required)
           span.label-text.connector  in
-          input(type="text", placeholder="location", ng-model="location", required)
+          input(type="text", placeholder="location", ng-model="user.location", required)
         #compensation
           span.label-text.intro i earn 
           span.label-text.second $
-          input(type="number", step="0.01", min="0.01", placeholder="salary", ng-model="salary", required)
+          input(type="number", step="0.01", min="0.01", placeholder="salary", ng-model="user.salary", required)
           span.label-text.connector  per 
-          select(ng-options="s for s in salaryTypes", ng-model="salaryType", required)
+          select(ng-options="s for s in salaryTypes", ng-model="user.salaryType", required)
         #about-submit
           button#clock-button(ng-disabled="!saveable()", ng-click="submit()") go on the clock
 
-    #clock(ng-controller="ClockCtrl")
-      | on the clock for: 
-      td-blocky-text(text="clockTime()", divider=":")
+    #my-status(ng-controller="ClockCtrl")
+      #clock
+        span.label-text.intro on the clock for: 
+        span.label-text.second
+        td-blocky-text(text="clockTime()", divider=":")
+      #earnings.slide(ng-if="timerStarted()")
+        span.label-text.intro earned: 
+        span.label-text.second $
+        td-blocky-text(text="earnedAmt(user)", divider=".")
 
     | working continuously during this time...
 

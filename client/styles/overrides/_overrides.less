@@ -59,8 +59,24 @@ input, select {
   }
 }
 
-#clock {
+#my-status {
   margin-top:    @marginSmall;
+  margin-bottom: @marginSmall;
+
+  .label-text {
+    display: inline-block;
+
+    &.intro {
+      min-width: 8em;
+    }
+
+    &.second {
+      min-width: 1em;
+    }
+  }
+}
+
+#clock {
   margin-bottom: @marginSmall;
 }
 
@@ -70,7 +86,7 @@ input, select {
   border-right: 0px;
 
   .label-text {
-    display:   inline-block;
+    display: inline-block;
 
     &.intro {
       min-width: 6em;
