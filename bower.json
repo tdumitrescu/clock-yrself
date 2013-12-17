@@ -21,7 +21,7 @@
     "angular-animate": "1.2.1",
     "angular-cookies": "1.2.1",
     "angular-mocks": "1.2.1",
-    "angular-blocky-text": "tdumitrescu/angular-blocky-text#~0.0.1"
+    "angular-blocky-text": "0.1.0"
   },
   "overrides": {
     "bootstrap-less": {
