@@ -14,7 +14,7 @@ angular.module('clockApp.directives', [])
     """
     <span class="td-blocky-text">
       <span class="td-blocky-text-char"
-            ng-repeat="c in chars(text) track by $index"
+            ng-repeat="c in text track by $index"
             ng-class="{divider: isDivider(c)}">
         {{c}}
       </span>
@@ -22,7 +22,6 @@ angular.module('clockApp.directives', [])
     """
   replace:  true
   link: (scope) ->
-    scope.chars     = (s) -> s.split('')
     scope.isDivider = (c) -> c is scope.divider
 
 )
