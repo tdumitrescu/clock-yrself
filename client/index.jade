@@ -23,14 +23,14 @@ block body
 
     #clock(ng-controller="ClockCtrl")
       | on the clock for: 
-      blocky-text(text="clockTime()", divider=":")
+      td-blocky-text(text="clockTime()", divider=":")
 
     | working continuously during this time...
 
     #info-comparison(ng-controller="CmpInfoCtrl")
       .cmp-panel(ng-repeat="ex in cmpExamples")
         | {{ex.occupation | indefArticlize}} in {{ex.location}} might earn: $
-        blocky-text(text="earnedAmt(ex)", divider=".")
+        td-blocky-text(text="earnedAmt(ex)", divider=".")
 
   script(src='/js/vendor.js')
   script(src='/js/partials.js')
