@@ -10,6 +10,34 @@ input, select {
   margin-top: @marginSmall;
 }
 
+@buttonColor:         @textColor;
+@buttonDisabledColor: lighten(@bodyBackground, 20%);
+
+button {
+  display:       inline-block;
+  border:        2px solid @buttonColor;
+  border-radius: @marginSmall;
+  padding:       @marginSmall;
+
+  color:            @buttonColor;
+  background-color: @bodyBackground;
+  font-size:        140%;
+
+  -webkit-transition: 0.5s linear all;
+  transition:         0.5s linear all;
+
+  &.small {
+    padding:   @marginSmall/2;
+    font-size: 100%;
+  }
+
+  &:disabled {
+    color:        @buttonDisabledColor;
+    border-color: @buttonDisabledColor;
+    cursor:       default;
+  }
+}
+
 .slide {
   overflow:     hidden;
   max-height:   0px;
@@ -104,29 +132,6 @@ input, select {
 
   #about-submit {
     margin: @marginSmall;
-
-    @buttonColor:         @textColor;
-    @buttonDisabledColor: lighten(@bodyBackground, 20%);
-
-    #clock-button {
-      display:       inline-block;
-      border:        2px solid @buttonColor;
-      border-radius: @marginSmall;
-      padding:       @marginSmall;
-
-      color:            @buttonColor;
-      background-color: @bodyBackground;
-      font-size:        140%;
-
-      -webkit-transition: 0.5s linear all;
-      transition:         0.5s linear all;
-
-      &:disabled {
-        color:        @buttonDisabledColor;
-        border-color: @buttonDisabledColor;
-        cursor:       default;
-      }
-    }
   }
 }
 
