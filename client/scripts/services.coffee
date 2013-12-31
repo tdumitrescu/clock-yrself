@@ -3,18 +3,31 @@
 class PageTimer
   constructor: ($interval) ->
     @$interval = $interval
-    @seconds = 0
+    @currentSeconds = @totalSeconds = 0
 
-  incr: => @seconds = Math.round(((new Date) - @startTime) / 1000)
+  incr: =>
+    @currentSeconds = Math.round(((new Date) - @currentStartTime) / 1000)
+    @totalSeconds = @secondsAtStart + @currentSeconds
+
+  pause: ->
+    @$interval.cancel @$i
+    @currentStartTime = null
+
+  restartTimer: ->
+    @currentStartTime = new Date
+    @currentSeconds = 0
+    @secondsAtStart = @totalSeconds
+    @$i = @$interval @incr, 1000
+
+  resume: -> @restartTimer()
 
   start: ->
-    @startTime = new Date
-    @seconds = 0
-    @$interval @incr, 1000
+    @restartTimer()
+    @origStartTime = @currentStartTime
 
-  started: -> @startTime?
+  paused:  -> !@currentStartTime?
+  started: -> @origStartTime?
 
-### Services ###
 
 angular.module('clockApp.services', [])
 
