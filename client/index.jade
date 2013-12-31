@@ -22,14 +22,21 @@ block body
           button#clock-button(ng-disabled="!saveable()", ng-click="submit()") go on the clock
 
     #my-status(ng-controller="ClockCtrl")
-      #clock
-        span.label-text.intro on the clock for: 
-        span.label-text.second
-        td-blocky-text(text="clockTime()", divider=":")
-      #earnings.slide(ng-if="timerStarted()")
-        span.label-text.intro earned: 
-        span.label-text.second $
-        td-blocky-text(text="earnedAmt(user)", divider=".")
+      .container
+        .row
+          .span4
+            #clock
+              span.label-text.intro on the clock for: 
+              span.label-text.second
+              td-blocky-text(text="clockTime()", divider=":")
+            #earnings.slide(ng-if="timerStarted()")
+              span.label-text.intro earned: 
+              span.label-text.second $
+              td-blocky-text(text="earnedAmt(user)", divider=".")
+          .span4.slide(ng-if="timerStarted()")
+            #pause-resume(ng-switch on="timerPaused()")
+              button.small(ng-switch-when="true", ng-click="resumeTimer()") RESUME
+              button.small(ng-switch-when="false", ng-click="pauseTimer()") PAUSE
 
     | working continuously during this time...
 

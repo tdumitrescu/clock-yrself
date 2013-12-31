@@ -5,7 +5,10 @@
 angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directives', 'clockApp.filters'])
 
 .controller('MainCtrl', ["$scope", "pageTimer", ($scope, timer) ->
+  $scope.timerPaused  = -> timer.paused()
   $scope.timerStarted = -> timer.started()
+  $scope.pauseTimer   = -> timer.pause()
+  $scope.resumeTimer  = -> timer.resume()
   $scope.salaryTypes = ["hour", "year"]
   $scope.user =
     occupation: ""
@@ -14,7 +17,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
 
   $scope.earnedAmt = (u) ->
     divisor = if u.salaryType is "year" then 7200000 else 3600
-    "#{(u.salary * timer.seconds / divisor).toFixed(2)}"
+    "#{(u.salary * timer.totalSeconds / divisor).toFixed(2)}"
 ])
 
 .controller('AboutCtrl', ["$scope", "pageTimer", ($scope, timer) ->
@@ -24,7 +27,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
 
 .controller('ClockCtrl', ["$scope", "pageTimer", "zerofillFilter", ($scope, timer, zerofill) ->
   $scope.clockTime = ->
-    totals = timer.seconds
+    totals = timer.totalSeconds
     totalm = Math.floor(totals / 60)
     h = Math.floor(totalm / 60)
     m = totalm - h * 60
