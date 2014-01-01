@@ -23,9 +23,6 @@ button {
   background-color: @bodyBackground;
   font-size:        140%;
 
-  -webkit-transition: 0.5s linear all;
-  transition:         0.5s linear all;
-
   &.small {
     padding:   @marginSmall/2;
     font-size: 100%;
@@ -131,7 +128,12 @@ button {
   }
 
   #about-submit {
-    margin: @marginSmall;
+    margin:             @marginSmall;
+
+    #clock-button {
+      -webkit-transition: 0.5s linear all;
+      transition:         0.5s linear all;
+    }
   }
 }
 
