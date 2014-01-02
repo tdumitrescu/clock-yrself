@@ -24,21 +24,21 @@ block body
     #my-status(ng-controller="ClockCtrl")
       .container
         .row
-          .span4
-            #clock
-              span.label-text.intro on the clock for: 
-              span.label-text.second
-              td-blocky-text(text="clockTime()", divider=":")
-            #earnings.slide(ng-if="timerStarted()")
-              span.label-text.intro earned: 
-              span.label-text.second $
-              td-blocky-text(text="earnedAmt(user)", divider=".")
-          .span4.slide(ng-if="timerStarted()")
+          .span2 on the clock for: 
+          .span3
+            td-blocky-text(text="clockTime()", divider=":")
+          .span3.slide(ng-if="timerStarted()")
             #pause-resume(ng-switch on="timerPaused()")
               button.small(ng-switch-when="true", ng-click="resumeTimer()")
                 i.fa.fa-fw.fa-play
               button.small(ng-switch-when="false", ng-click="pauseTimer()")
                 i.fa.fa-fw.fa-pause
+        .row#earnings.slide(ng-if="timerStarted()")
+          .span2
+            | earned:
+            .pull-right $
+          .span3
+            td-blocky-text(text="earnedAmt(user)", divider=".")
 
     | working continuously during this time...
 
