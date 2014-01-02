@@ -39,6 +39,33 @@ button {
   }
 }
 
+button.cycle {
+  animation:         button-border-cycle 3s infinite, button-color-cycle 3s infinite;
+  -webkit-animation: button-border-cycle 3s infinite, button-color-cycle 3s infinite;
+  -moz-animation:    button-border-cycle 3s infinite, button-color-cycle 3s infinite;
+  -o-animation:      button-border-cycle 3s infinite, button-color-cycle 3s infinite;
+}
+
+@keyframes button-border-cycle {
+  0%  { border-color: @buttonColor;         }
+  50% { border-color: @buttonDisabledColor; }
+}
+
+@-webkit-keyframes button-border-cycle {
+  0%  { border-color: @buttonColor;         }
+  50% { border-color: @buttonDisabledColor; }
+}
+
+@keyframes button-color-cycle {
+  0%  { color: @buttonColor;         }
+  50% { color: @buttonDisabledColor; }
+}
+
+@-webkit-keyframes button-color-cycle {
+  0%  { color: @buttonColor;         }
+  50% { color: @buttonDisabledColor; }
+}
+
 .slide {
   overflow:     hidden;
   max-height:   0px;
@@ -93,7 +120,7 @@ button {
   margin-bottom: @marginSmall;
 
   #earnings {
-    margin-top:    @marginSmall;
+    margin-top: @marginSmall;
   }
 }
 
