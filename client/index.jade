@@ -43,9 +43,13 @@ block body
     | working continuously during this time...
 
     #info-comparison(ng-controller="CmpInfoCtrl")
-      .cmp-panel(ng-repeat="ex in cmpExamples")
-        | {{ex.occupation | indefArticlize}} in {{ex.location}} might earn: $
-        td-blocky-text(text="earnedAmt(ex)", divider=".")
+      .row
+        .span6(ng-repeat="ex in cmpExamples")
+          .cmp-panel.clearfix
+            .span2.cmp-descr {{ex.occupation | indefArticlize}} in {{ex.location}} might earn:
+            .span3.cmp-comp
+              | $
+              td-blocky-text(text="earnedAmt(ex)", divider=".")
 
   script(src='/js/vendor.js')
   script(src='/js/partials.js')
