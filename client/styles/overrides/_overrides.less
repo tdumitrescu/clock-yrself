@@ -23,9 +23,13 @@ button {
   background-color: @bodyBackground;
   font-size:        140%;
 
+  @smallButtonMargin: @marginSmall/4;
+
   &.small {
-    padding:   @marginSmall/2;
-    font-size: 100%;
+    border:        1px solid @buttonColor;
+    border-radius: @smallButtonMargin*2;
+    padding:       @smallButtonMargin;
+    font-size:     100%;
   }
 
   &:disabled {

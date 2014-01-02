@@ -35,8 +35,10 @@ block body
               td-blocky-text(text="earnedAmt(user)", divider=".")
           .span4.slide(ng-if="timerStarted()")
             #pause-resume(ng-switch on="timerPaused()")
-              button.small(ng-switch-when="true", ng-click="resumeTimer()") RESUME
-              button.small(ng-switch-when="false", ng-click="pauseTimer()") PAUSE
+              button.small(ng-switch-when="true", ng-click="resumeTimer()")
+                i.fa.fa-fw.fa-play
+              button.small(ng-switch-when="false", ng-click="pauseTimer()")
+                i.fa.fa-fw.fa-pause
 
     | working continuously during this time...
 
