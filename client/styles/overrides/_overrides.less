@@ -32,6 +32,12 @@ button {
     font-size:     100%;
   }
 
+  &.inv {
+    color:            @bodyBackground;
+    background-color: @buttonColor;
+    border:           0px;
+  }
+
   &:disabled {
     color:        @buttonDisabledColor;
     border-color: @buttonDisabledColor;
@@ -49,24 +55,27 @@ button.cycle {
   }
 }
 
+@bcColor1: @bodyBackground;
+@bcColor2: @buttonDisabledColor;
+
 @keyframes button-border-cycle {
-  0%  { border-color: @buttonColor;         }
-  50% { border-color: @buttonDisabledColor; }
+  0%  { border-color: @bcColor1; }
+  50% { border-color: @bcColor2; }
 }
 
 @-webkit-keyframes button-border-cycle {
-  0%  { border-color: @buttonColor;         }
-  50% { border-color: @buttonDisabledColor; }
+  0%  { border-color: @bcColor1; }
+  50% { border-color: @bcColor2; }
 }
 
 @keyframes button-color-cycle {
-  0%  { color: @buttonColor;         }
-  50% { color: @buttonDisabledColor; }
+  0%  { color: @bcColor1; }
+  50% { color: @bcColor2; }
 }
 
 @-webkit-keyframes button-color-cycle {
-  0%  { color: @buttonColor;         }
-  50% { color: @buttonDisabledColor; }
+  0%  { color: @bcColor1; }
+  50% { color: @bcColor2; }
 }
 
 .slide {
@@ -124,6 +133,22 @@ button.cycle {
 
   #earnings {
     margin-top: @marginSmall;
+  }
+}
+
+#pause-resume {
+  button {
+    text-align: left;
+
+    i.fa {
+      width: 1.8em;
+    }
+
+    span {
+      display:    inline-block;
+      width:      4.6em;
+      text-align: center;
+    }
   }
 }
 
