@@ -42,8 +42,11 @@ button {
 button.cycle {
   animation:         button-border-cycle 3s infinite, button-color-cycle 3s infinite;
   -webkit-animation: button-border-cycle 3s infinite, button-color-cycle 3s infinite;
-  -moz-animation:    button-border-cycle 3s infinite, button-color-cycle 3s infinite;
-  -o-animation:      button-border-cycle 3s infinite, button-color-cycle 3s infinite;
+
+  &.ng-animate {
+    -webkit-animation: none 0s;
+    animation:         none 0s;
+  }
 }
 
 @keyframes button-border-cycle {
