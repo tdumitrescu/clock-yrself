@@ -51,10 +51,10 @@ block body
 
     #info-comparison(ng-controller="CmpInfoCtrl")
       .row
-        .span6(ng-repeat="ex in cmpExamples")
+        .span4(ng-repeat="ex in cmpExamples")
           .cmp-panel.clearfix
-            .span2.cmp-descr {{ex.occupation | indefArticlize}} in {{ex.location}} might earn:
-            .span3.cmp-comp
+            .cmp-descr {{ex.occupation | indefArticlize}} in {{ex.location}} might earn:
+            .cmp-comp
               | $
               td-blocky-text(text="earnedAmt(ex)", divider=".")
 
