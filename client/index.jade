@@ -28,7 +28,7 @@ block body
           .span3
             td-blocky-text(text="clockTime()", divider=":")
           .span3.slide(ng-if="timerStarted()")
-            #pause-resume(ng-switch on="timerPaused()")
+            .clock-controls(ng-switch on="timerPaused()")
               button.small.inv.cycle(ng-switch-when="true", ng-click="resumeTimer()")
                 i.fa.fa-fw.fa-play
                 span resume
@@ -41,6 +41,11 @@ block body
             .pull-right $
           .span3
             td-blocky-text(text="earnedAmt(user)", divider=".")
+          .span3(ng-if="timerStarted()")
+            .clock-controls
+              button.small.inv.slide(ng-if="timerPaused()", ng-click="resetTimer()")
+                i.fa.fa-fw.fa-undo
+                span reset
 
     | working continuously during this time...
 

@@ -8,6 +8,7 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
   $scope.timerPaused  = -> timer.paused()
   $scope.timerStarted = -> timer.started()
   $scope.pauseTimer   = -> timer.pause()
+  $scope.resetTimer   = -> timer.reset()
   $scope.resumeTimer  = -> timer.resume()
   $scope.salaryTypes = ["hour", "year"]
   $scope.user =

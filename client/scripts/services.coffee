@@ -19,6 +19,10 @@ class PageTimer
     @secondsAtStart = @totalSeconds
     @$i = @$interval @incr, 1000
 
+  reset: ->
+    @totalSeconds = 0
+    @start()
+
   resume: -> @restartTimer()
 
   start: ->
