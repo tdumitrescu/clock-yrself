@@ -7,7 +7,7 @@ block body
     #about-me.slide(ng-controller="AboutCtrl", ng-if="!timerStarted()")
       form(name="aboutMeForm", novalidate)
         #occupation
-          span.label-text.intro i work as {{occupation | indefArticle}}
+          span.label-text.intro i work as {{user.occupation | indefArticle}}
           span.label-text.second
           input(type="text", placeholder="occupation", ng-model="user.occupation", required)
           span.label-text.connector  in
