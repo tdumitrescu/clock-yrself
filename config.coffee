@@ -9,7 +9,7 @@ exports.config =
   # See docs at https://github.com/brunch/brunch/blob/stable/docs/config.md.
   conventions:
     assets:  /^client\/assets\//
-    ignored: /^(bower_components\/bootstrap-less(-themes)?|bower_components\/components-font-awesome\/(less|scss)|client\/styles\/overrides)/
+    ignored: /^(bower_components\/bootstrap-less(-themes)?|bower_components\/components-font-awesome\/(less|scss)|client\/styles\/clockApp|client\/styles\/overrides)/
   modules:
     definition: false
     wrapper: false
