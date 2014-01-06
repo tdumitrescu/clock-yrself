@@ -1,0 +1,31 @@
+#about-me {
+  border:       1px solid @blueLight;
+  border-left:  0px;
+  border-right: 0px;
+
+  .label-text {
+    display: inline-block;
+
+    &.intro {
+      min-width: 6em;
+    }
+
+    &.second {
+      min-width: 1em;
+    }
+
+    &.connector {
+      min-width: 2em;
+      padding-left: 1em;
+    }
+  }
+
+  #about-submit {
+    margin: @marginSmall;
+
+    #clock-button {
+      -webkit-transition: 0.5s linear all;
+      transition:         0.5s linear all;
+    }
+  }
+}
