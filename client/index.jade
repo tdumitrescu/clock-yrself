@@ -23,26 +23,29 @@ block body
 
     #my-status(ng-controller="ClockCtrl")
       .container
-        .row
-          .span2 on the clock for: 
-          .span3
-            td-blocky-text(text="clockTime()", divider=":")
-          .span3.slide(ng-if="timerStarted()")
-            .clock-controls(ng-switch on="timerPaused()")
+        #my-info
+          #my-time.row
+            .span2 on the clock for: 
+            .span4
+              .spacer
+              td-blocky-text(text="clockTime()", divider=":")
+          #earnings.row.slide(ng-if="timerStarted()")
+            .span2 earned:
+            .span4
+              .spacer $
+              td-blocky-text(text="earnedAmt(user)", divider=".")
+
+        #controls.slide(ng-if="timerStarted()")
+          .clock-controls.row(ng-switch on="timerPaused()")
+            .span3
               button.small.inv.cycle(ng-switch-when="true", ng-click="resumeTimer()")
                 i.fa.fa-fw.fa-play
                 span resume
               button.small.inv(ng-switch-when="false", ng-click="pauseTimer()")
                 i.fa.fa-fw.fa-pause
                 span pause
-        .row#earnings.slide(ng-if="timerStarted()")
-          .span2
-            | earned:
-            .pull-right $
-          .span3
-            td-blocky-text(text="earnedAmt(user)", divider=".")
-          .span3(ng-if="timerStarted()")
-            .clock-controls
+          .clock-controls.row
+            .span3
               button.small.inv.slide(ng-if="timerPaused()", ng-click="resetTimer()")
                 i.fa.fa-fw.fa-undo
                 span reset
