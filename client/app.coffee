@@ -4,7 +4,7 @@
 angular.module('clockApp', [
   'ngCookies', 'ngResource', 'ngRoute', 'ngAnimate',
   'clockApp.controllers', 'clockApp.directives', 'clockApp.filters',
-  'clockApp.services', 'clockApp.animations',
+  'clockApp.services',
   'partials',
   'tdumitrescu.blocky-text'
 ])

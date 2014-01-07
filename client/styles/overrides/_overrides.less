@@ -77,8 +77,29 @@ button.cycle {
 }
 
 .slide {
-  overflow:     hidden;
-  max-height:   0px;
+  overflow: hidden;
+
+  &.ng-enter, &.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    transition:         0.5s linear all;
+  }
+
+  @slideMaxHeight: 250px;
+  &.ng-enter {
+    max-height: 0;
+
+    &.ng-enter-active {
+      max-height: @slideMaxHeight;
+    }
+  }
+
+  &.ng-leave {
+    max-height: @slideMaxHeight;
+
+    &.ng-leave-active {
+      max-height: 0;
+    }
+  }
 }
 
 .td-blocky-text-char {
