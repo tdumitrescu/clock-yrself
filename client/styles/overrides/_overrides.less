@@ -17,7 +17,7 @@ input, select {
 }
 
 @buttonColor:         @textColor;
-@buttonDisabledColor: lighten(@bodyBackground, 20%);
+@buttonDisabledColor: @secondaryTextColor;
 
 button {
   display:       inline-block;
@@ -138,4 +138,8 @@ button.cycle {
     color:            @textColor;
     background-color: @bodyBackground;
   }
+}
+
+.info-icon {
+  color: @secondaryTextColor;
 }
