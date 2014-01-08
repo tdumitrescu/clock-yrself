@@ -30,7 +30,7 @@ block body
               .spacer
               td-blocky-text(text="clockTime()", divider=":")
               .expl(ng-if="timerStarted()")
-                i.fa.fa-fw.fa-info-circle
+                i.fa.fa-fw.fa-info-circle(popover-title="{{exTitle(user)}}", popover="Salary: {{exSalary(user)}}", popover-trigger="mouseenter", popover-placement="bottom")
           #earnings.row.slide(ng-if="timerStarted()")
             .span2 earned:
             .span4
@@ -63,7 +63,7 @@ block body
               | $
               td-blocky-text(text="earnedAmt(ex)", divider=".")
               .pull-right(ng-if="timerStarted()")
-                i.fa.fa-fw.fa-info-circle
+                i.fa.fa-fw.fa-info-circle(popover-title="{{exTitle(ex)}}", popover="Salary: {{exSalary(ex)}}", popover-trigger="mouseenter")
 
   script(src='/js/vendor.js')
   script(src='/js/partials.js')

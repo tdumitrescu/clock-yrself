@@ -19,6 +19,9 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
   $scope.earnedAmt = (u) ->
     divisor = if u.salaryType is "year" then 7200000 else 3600
     "#{(u.salary * timer.totalSeconds / divisor).toFixed(2)}"
+
+  $scope.exSalary = (u) -> "$#{u.salary} per #{u.salaryType}"
+  $scope.exTitle  = (u) -> "#{u.occupation} in #{u.location}"
 ])
 
 .controller('AboutCtrl', ["$scope", "pageTimer", ($scope, timer) ->

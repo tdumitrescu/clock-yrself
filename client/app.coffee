@@ -6,5 +6,5 @@ angular.module('clockApp', [
   'clockApp.controllers', 'clockApp.directives', 'clockApp.filters',
   'clockApp.services',
   'partials',
-  'tdumitrescu.blocky-text'
+  'tdumitrescu.blocky-text', 'ui.bootstrap'
 ])
