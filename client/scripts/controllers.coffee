@@ -4,7 +4,7 @@
 
 angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directives', 'clockApp.filters'])
 
-.controller('MainCtrl', ["$scope", "pageTimer", ($scope, timer) ->
+.controller('MainCtrl', ["$scope", "$cookies", "pageTimer", ($scope, $cookies, timer) ->
   $scope.timerPaused  = -> timer.paused()
   $scope.timerStarted = -> timer.started()
   $scope.pauseTimer   = -> timer.pause()
@@ -16,6 +16,13 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
     location:   ""
     salaryType: $scope.salaryTypes[0]
 
+  if $cookies.user_ex?
+    savedEx = JSON.parse($cookies.user_ex.slice(2))
+    $scope.user.occupation = savedEx.occupation
+    $scope.user.location   = savedEx.location
+    $scope.user.salaryType = savedEx.salaryType
+    $scope.user.salary     = savedEx.salary
+
   $scope.earnedAmt = (u) ->
     divisor = if u.salaryType is "year" then 7200000 else 3600
     "#{(u.salary * timer.totalSeconds / divisor).toFixed(2)}"
@@ -24,9 +31,11 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
   $scope.exTitle  = (u) -> "#{u.occupation} in #{u.location}"
 ])
 
-.controller('AboutCtrl', ["$scope", "pageTimer", ($scope, timer) ->
-  $scope.saveable = -> !timer.started() and @aboutMeForm.$dirty and @aboutMeForm.$valid
-  $scope.submit   = -> timer.start()
+.controller('AboutCtrl', ["$scope", "$http", "pageTimer", ($scope, $http, timer) ->
+  $scope.saveable = -> !timer.started() and @aboutMeForm.$valid
+  $scope.submit   = ->
+    $http.post("/api/ex", $scope.user) if @aboutMeForm.$dirty
+    timer.start()
 ])
 
 .controller('ClockCtrl', ["$scope", "pageTimer", "zerofillFilter", ($scope, timer, zerofill) ->
@@ -56,10 +65,6 @@ angular.module('clockApp.controllers', ['clockApp.services', 'clockApp.directive
     }
   ]
   $http.get("/api/exx")
-    .success(
-      (data) -> $scope.cmpExamples = data.examples
-    )
-    .error(
-      -> $scope.cmpExamples = $scope.defaultData
-    )
+    .success((data) -> $scope.cmpExamples = data.examples)
+    .error(-> $scope.cmpExamples = $scope.defaultData)
 ])

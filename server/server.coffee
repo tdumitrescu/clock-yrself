@@ -17,6 +17,7 @@ assetsPath = path.join(__dirname, '..', '_public')
 
 # all environments
 app.use express.logger('dev')
+app.use express.cookieParser()
 app.use express.bodyParser()
 app.use express.methodOverride()
 app.use express.static(assetsPath)
@@ -35,8 +36,10 @@ if app.get('env') is 'development'
 #
 
 # JSON API
-app.get "/api/exx", api.exx
-app.get "/api/*",   (req, res) -> res.send 'Not found', 404
+app.get  "/api/exx", api.exx
+app.post "/api/ex",  api.createEx
+app.get  "/api/*",   (req, res) -> res.send 'Not found', 404
+app.post "/api/*",   (req, res) -> res.send 'Not found', 404
 
 # serve index for all other routes
 app.get '*', (req, res) -> res.sendfile "#{assetsPath}/index.html"
